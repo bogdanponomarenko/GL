@@ -1,24 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main(int argc, char **argv)
 {
-	int steps;
+	int n = 0;
+	int k = 0;
+	float steps = 0;
 	
-	if (argc != 3) {
-		printf ("Enter 2 arguments\n");
-		exit(EXIT_FAILURE);
-	} else {
-		if ((atoi(argv[1]) > 0) && (atoi(argv[2]) >= 0)) {
-			for (int i = 0; i < atoi(argv[1]); i++) {
-				if (i % (atoi(argv[2]) + 1) == 0) {
-					steps++;
-				}
-			}
-			printf("%d\n", steps);
+	n = atoi(argv[1]);
+	k = atoi(argv[2]);
+	
+	if ((n > 0) && (k >= 0)) {
+		if (n % (k + 1) == 0) {
+			steps = ceil(n / (k + 1));
 		} else {
-			printf("Enter valid arguments\n");
+			steps = ceil(n / (k + 1)) + 1;
 		}
+			printf("%.0f\n", steps);
+	} else {
+			printf("Enter valid arguments\n");
 	}
 }
-
